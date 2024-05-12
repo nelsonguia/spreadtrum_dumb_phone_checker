@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Título do programa
-# Versão 1.0
+# Versão 1.1
 # Versão portuguesa
 echo ""
 echo "#################################"
@@ -10,15 +10,22 @@ echo "#################################"
 echo ""
 echo "O_o Nelson Guia o_O"
 echo ""
-echo "Nota: script inspirado em código do meu amigo Ricardo S."
+echo "Nota: script inspirado em código do meu amigo Ricardo S"
 echo ""
 
 # Pausa para que o título seja visível
 sleep 2
 
+# Função para capturar o sinal SIGINT (Ctrl+c), interromper a monitorização e voltar ao menu principal
+func_trap() {
+    trap 'echo ""; echo "Monitorização interrompida. Regressando ao menu principal..."; sleep 1; show_menu' INT
+}
 # Função para verificar se o ID do dispositivo contém "0x4d00" e relatar se é um dispositivo Spreadtrum
 check_id() {
     local id="$1"
+
+    func_trap
+
     if echo "$id" | grep -q "4d00"; then
         echo "USB detectado: Spreadtrum detectado"
         return 0  # Retorna sucesso (código de saída 0)

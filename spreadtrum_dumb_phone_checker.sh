@@ -51,8 +51,14 @@ show_menu() {
         case $choice in
             1)
                 echo ""
-                echo "Pressione diferentes teclas para identificar a tecla dump, desligue e volte a ligar o equipamento e aguarde confirmação..."
+                echo "Para interromper a pesquisa e regressar ao menu principal, pressione as teclas 'Ctrl+C'"
                 echo ""
+                echo "==================================================================="
+                echo "= Pressione diferentes teclas para identificar a tecla dump,      ="
+                echo "= desligue e volte a ligar o equipamento e aguarde confirmação... ="
+                echo "==================================================================="
+                echo ""
+
                 # Variável para armazenar o número de entradas iguais
                 count=0
 
@@ -105,4 +111,3 @@ show_menu() {
 
 # Inicia o menu
 show_menu
-
